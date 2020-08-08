@@ -1,0 +1,68 @@
+About The Project
+
+Project Name: "Real Time Masked Face Detection"
+
+Project Statement: During this COVID-19 Pandemic wearing a face mask is mandatory. So, it will be difficult and time consuming 
+                   for a person to manually identify the people who are wearing face mask in a crowd.
+                   This project is to identify the people who are wearing face mask and who are not wearing face mask.
+
+Programming Language Used: Python
+
+Approach: In this project a Machine learing Algorithm Called Logistic Regression is used.
+	  Here Logistic Regression Algorithm is used for Binary Classification i.e, to classify whether a person is wearing a mask or not.
+	  
+Training and Testing the Model: The logistic Regression Model is Trained using 450 images of which 225 images are of Masked Human faces and 
+                                225 images are of unmasked human face images.
+ 	                        Model is tested using 150 Images in which 75 images are masked and 75 images are unmasked.
+                                The test accuracy was 92.10 percentage.
+
+
+Process:          
+            Data Preprocessing:
+      
+                  1. First the following libraries need to be imported :-
+ 								-numpy (for dealing with multi dimentional arrays)
+							        -pandas (for dealing with the dataframes)
+                                                                -cv2  (opencv a computer vision library for real time face detection)
+                                                                -sklearn (machine learning library to get the ML models)
+                   
+
+                  2. Then load all the images, then convert them in a numpy array
+                     and append the each numpy array of the each image into the pandas data frame.
+                     Then convert the data frame of the image data into a csv file and save the file.
+                     (this is csv file once saved can be used direclty without loading the images again and again)
+                  
+                  3.Then create a data frame containg the actual outputs accordingly
+             
+             Training and Testing Process:
+                         
+                  1.Split the data frame of the images into training and testing sets ( That are training image data (x_train),
+                                                                                        image labels or actual outputs(y_train), 
+                                                                                        testing image data (x_test), 
+                                                                                        image labels or actual ouputs(y_test) )
+                  2.Then calling the sklearn's logistic regression model for the training process.
+                  
+                  3.Testing the model on the test data and finding the test accuracy.
+          
+             Real Time masked face detection Process:
+                 
+                  1.First the haarcascade file (that is haarcascade_frontalface_default need to be loaded using the opencv's cascadeclassifier function)
+               
+                  2.Capturing the video using the system camera(web cam) with the help of opencv.
+  
+                  3.detecting the faces and resizing the detected faces into 64 x 64 pixels.
+ 
+                  4.The detected faces data in converted into a and reshaped into a 1 x 12288 size pandas dataframe.
+
+                  5.Then logistic Model is called by passing the image dataframe as argument.
+
+                  6.Then model will predict the output if the person is wearing a face mask the output is predicted as "1" and a Green Color Rectangle 
+                    is drawn around the face of the person, It is also shown as "Mask Detected" on the face of the person in the real time video.
+                    Else if person is not wearing a face mask the output is predicted as "0" and a Red Colored Rectangle 
+                    is drawn around the face of the person, It is also shown as "No Mask Detected" on the face of the person in the real time video. 
+                    
+
+                  
+                    
+
+
